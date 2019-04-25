@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+       <p style="text-align: center; font-size: 70pt; margin: 10px">
+		  <ion-icon color="light" name="musical-notes"></ion-icon>
+	   </p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  
+  <ion-list>
+	<ng-container *ngFor="let file of files; let x = index">
+		<ion-item text-wrap [class.select]="indiceActual === x" (click)="cargarArchivo(x)">
+			{{ file.nombre }}
+		</ion-item>
+	</ng-container>
+  </ion-list>
+
+
+ 
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar>
+	<ion-item lines="none">
+    <ion-range [(ngModel)]="valorRange" [max]="maximo" (touchstart)="quiereAvanzar()" (touchend)="irA()" color="light">
+		<ion-label color="light" slot="start">{{ valorRangeFormateado }}</ion-label>
+        <ion-label color="light" slot="end">{{ maximoFormateado }}</ion-label>
+	</ion-range>
+  </ion-item>
+  
+	  <ion-title>
+		  <ion-button (click)="play()">
+			<ion-icon color="light" name="play"></ion-icon>
+		  </ion-button>
+		  <ion-button (click)="pause()">
+			<ion-icon color="light" name="pause"></ion-icon>
+		  </ion-button>
+		  <ion-button (click)="stop()">
+			<ion-icon color="light" name="square"></ion-icon>
+		  </ion-button>
+	  </ion-title>
+  </ion-toolbar>
+</ion-footer>

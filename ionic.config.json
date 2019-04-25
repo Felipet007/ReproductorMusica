@@ -1,0 +1,7 @@
+{
+  "name": "miReproductor",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
